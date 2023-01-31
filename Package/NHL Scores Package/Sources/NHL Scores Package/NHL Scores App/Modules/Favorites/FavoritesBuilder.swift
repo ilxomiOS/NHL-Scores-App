@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FavoritesBuilder {
+enum FavoritesBuilder {
     static func build() -> FavoritesViewController {
         let storage = CoreDataManager.shared
         let interactor = FavoritesInteractor(storage: storage)
