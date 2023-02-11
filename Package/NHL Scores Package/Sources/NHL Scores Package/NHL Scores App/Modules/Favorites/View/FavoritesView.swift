@@ -9,16 +9,16 @@ import UIKit
 
 protocol FavoritesViewProtocol: AnyObject {
     func getFavoritesGames(favoritesGames: [FavoriteGame])
-    var index: ((Int) -> Void)? { get set }
+    var onDelete: ((Int) -> Void)? { get set }
 }
 
 final class FavoritesView: UIView {
     
-    private lazy var headerElements = HeaderView()
+    private lazy var headerElements = HeaderView() // тоже самое lazy не имеет смысла
     private lazy var tableView = TableView()
     
     private let dataSource = FavoritesDataSource()
-    var index: ((Int) -> Void)?
+    var onDelete: ((Int) -> Void)?
     
     init() {
         super.init(frame: .zero)
@@ -63,7 +63,7 @@ final class FavoritesView: UIView {
     private func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .normal, title: "Delete") { action, view, completion in
             self.dataSource.favoritesGames.remove(at: indexPath.row)
-            self.index?(indexPath.row)
+            self.onDelete?(indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .right)
             completion(true)
         }

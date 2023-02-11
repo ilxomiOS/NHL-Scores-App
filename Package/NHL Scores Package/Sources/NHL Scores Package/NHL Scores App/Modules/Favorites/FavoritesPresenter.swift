@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FavoritesPresenterProtocol: AnyObject {
+protocol FavoritesPresenterInput: AnyObject {
     func viewDidLoad(view: FavoritesView)
     func deleteFavoriteGame(at index: Int)
 }
@@ -23,9 +23,9 @@ final class FavoritesPresenter {
     }
 }
 
-extension FavoritesPresenter: FavoritesPresenterProtocol {
+extension FavoritesPresenter: FavoritesPresenterInput {
     func viewDidLoad(view: FavoritesView) {
-        self.view = view
+        self.view = view // это должно быть в билдере все быть
         interactor.fetchFavoritesGames { [weak self] favoritesGames in
             guard let self = self,
                   let favoritesGames = favoritesGames

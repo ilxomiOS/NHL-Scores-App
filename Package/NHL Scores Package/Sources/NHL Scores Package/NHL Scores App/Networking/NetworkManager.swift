@@ -12,7 +12,7 @@ protocol NetworkManagerProtocol: AnyObject {
 }
 
 final class NetworkManager {
-    static let shared = NetworkManager()
+    static let shared = NetworkManager() // shared не надо использовать у тебя URLSession.shared уже shared
     private init() { }
 }
 
@@ -22,7 +22,8 @@ extension NetworkManager: NetworkManagerProtocol {
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            guard error == nil else {
+            guard error == nil else { // старайся делать только один guard в методе
+                // если их больше то лучше if else использовать
                 completion(.failure(.connectionError))
                 return
             }

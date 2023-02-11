@@ -8,7 +8,7 @@
 import Foundation
 
 struct FavoritesViewModel {
-    var homeTeam: String
+    var homeTeam: String // если используешь struct надо все свойства делать только let структура не должна быть mutable
     var awayTeam: String
     var homeTeamScore: Int16
     var awayTeamScore: Int16

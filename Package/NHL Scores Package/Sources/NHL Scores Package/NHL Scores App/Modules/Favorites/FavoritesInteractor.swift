@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FavoritesInteractorProtocol: AnyObject {
+protocol FavoritesInteractorProtocol: AnyObject { // слово protocol не используется FavoritesService
     func fetchFavoritesGames(completion: @escaping ([FavoriteGame]?) -> Void)
     func deleteFavoriteGame(_ game: FavoriteGame)
 }
@@ -21,7 +21,8 @@ final class FavoritesInteractor {
 }
 
 extension FavoritesInteractor: FavoritesInteractorProtocol {
-    func fetchFavoritesGames(completion: @escaping ([FavoriteGame]?) -> Void) {
+    func fetchFavoritesGames(completion: @escaping ([FavoriteGame]?) -> Void) { // completion не используем, есть Result
+         // либо используй технологию async await
         storage.fetchFavoritesGames { (result: Result<[FavoriteGame], Error>) in
             switch result {
             case .success(let favoritesGames):

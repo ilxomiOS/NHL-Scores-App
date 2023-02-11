@@ -7,6 +7,22 @@
 
 import UIKit
 
+extension UILabel {
+    enum Nhl {
+        func makeLabel() -> UILabel {
+            let label = UILabel()
+            label.textColor = .label
+            label.font = UIFont.preferredFont(forTextStyle: .body)
+            label.adjustsFontForContentSizeCategory = true
+            label.adjustsFontSizeToFitWidth = true
+            label.minimumScaleFactor = 0.75
+            label.lineBreakMode = .byWordWrapping
+            label.textColor = .lightGray
+            return label
+        }
+    }
+}
+
 final class BodyLabel: UILabel {
     
     override init(frame: CGRect) {
@@ -18,10 +34,10 @@ final class BodyLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(textAlignment: NSTextAlignment) {
-        self.init(frame: .zero)
-        self.textAlignment = textAlignment
-    }
+//    convenience init(textAlignment: NSTextAlignment) {
+//        self.init(frame: .zero)
+//        self.textAlignment = textAlignment
+//    }
     
     private func configure() {
         textColor = .label

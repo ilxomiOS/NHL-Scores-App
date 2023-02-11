@@ -8,7 +8,7 @@
 import Foundation
 
 struct Endpoint {
-    var path: String
+    var path: String // если структура то лучше использовать let иначе структура не имеет смысла
     var queryItems: [URLQueryItem] = []
 }
 

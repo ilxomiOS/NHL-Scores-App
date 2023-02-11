@@ -8,12 +8,12 @@
 import UIKit
 import SnapKit
 
-final class HeaderView: UIView {
+final class HeaderView: UIView { // Здесь правильно что создал отдельное вью
     private lazy var titleLabel = TitleLabel(textAlignment: .left, fontSize: 34)
-    private lazy var nhlImageView = UIImageView()
+    private lazy var imageView = UIImageView()
     
-    private lazy var headerStackView = StackView(
-        arrangedSubviews: [titleLabel, nhlImageView],
+    private lazy var headerStackView = StackView( // Зачем lazy из инита все равно дергаешь?
+        arrangedSubviews: [titleLabel, imageView],
         axis: .horizontal,
         alignment: .fill,
         spacing: 8
@@ -29,11 +29,11 @@ final class HeaderView: UIView {
     }
     
     private func configure() {
-        nhlImageView.image = Constants.nhl
+        imageView.image = Constants.nhl
         
         addSubview(headerStackView)
         
-        nhlImageView.snp.makeConstraints { make in
+        imageView.snp.makeConstraints { make in
             make.height.width.equalTo(60)
         }
         
