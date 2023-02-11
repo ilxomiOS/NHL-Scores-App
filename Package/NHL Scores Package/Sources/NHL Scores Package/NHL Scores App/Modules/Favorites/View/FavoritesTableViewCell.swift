@@ -49,7 +49,7 @@ final class FavoritesTableViewCell: UITableViewCell {
         spacing: 8
     )
     
-    private lazy var rootStackView = StackView(
+    private lazy var rootStackView = StackView( // тебе  не надо lazy ты все иницилизирешь в init
         arrangedSubviews: [homeTeamStackView, scoresStackView, awayTeamStackView],
         axis: .horizontal,
         alignment: .fill,

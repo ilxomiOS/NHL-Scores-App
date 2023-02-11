@@ -9,13 +9,13 @@ import UIKit
 
 final class FavoritesViewController: UIViewController {
     
-    private let presenter: FavoritesPresenterProtocol
+    private let presenter: FavoritesPresenterInput
     let favoritesView = FavoritesView()
     
-    init(presenter: FavoritesPresenterProtocol) {
+    init(presenter: FavoritesPresenterInput) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        presenter.viewDidLoad(view: favoritesView)
+        presenter.viewDidLoad(view: favoritesView) // viewdidload не корректно тк у тебя здесь init
     }
     
     required init?(coder: NSCoder) {

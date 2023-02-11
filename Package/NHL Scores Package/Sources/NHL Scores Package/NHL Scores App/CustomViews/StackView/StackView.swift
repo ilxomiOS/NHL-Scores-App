@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StackView: UIStackView {
+final class StackView: UIStackView { // не перегружаем
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +23,7 @@ final class StackView: UIStackView {
                      alignment: UIStackView.Alignment,
                      spacing: CGFloat)
     {
-        self.init(frame: .zero)
+        self.init(frame: .zero) // два инита ???
         self.init(arrangedSubviews: arrangedSubviews)
         self.axis = axis
         self.alignment = alignment
@@ -32,6 +32,6 @@ final class StackView: UIStackView {
     
     private func configure() {
         distribution = .fill
-        contentMode = .scaleToFill
+//        contentMode = .scaleToFill
     }
 }
